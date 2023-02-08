@@ -23,32 +23,46 @@ function playRound(playerSelection, computerSelection) {
         }
 }
         
-        
+
 function game() {
+    let round = 0;
     let yourScore = 0;
     let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
+    while (round < 5) {
         let player = prompt("Choose your fighter!");
-        player = player.toLowerCase();
-        player = player[0].toUpperCase()+player.substring(1);
-        console.log(`You: ${player}`);
-        let computer = getComputerChoice();
-        console.log(`Computer: ${computer}`);
 
-        let round = playRound(player, computer)
-        console.log(round)
-        
-        if (round.includes("win")) {
-            yourScore++;
+        if (player === "") {
+            console.log("***PLEASE ENTER A VALUE***");
+            continue;
+        } else {
+            player = player.trim();
+            player = player.toLowerCase();
+            player = player[0].toUpperCase()+player.substring(1);
+            
+            if (choices.indexOf(player) > -1) {
+                round++;
+                console.log(round);
+
+                console.log(`You: ${player}`)
+                let computer = getComputerChoice();
+                console.log(`Computer: ${computer}`);
+
+                let play = playRound(player, computer);
+                console.log(play)
+
+                if (play.includes("win")) {
+                    yourScore++;
+                } else if (play.includes("lose")) {
+                    computerScore++;
+                }
+
+                console.log(`Score: You - ${yourScore}, Computer - ${computerScore}`)
+
+            } else {
+                console.log(`Please input either Rock, Paper, or Scissors only.`)
+                continue;
+            }
         }
-
-        else if (round.includes("lose")) {
-            computerScore++;
-        }
-
-        console.log(`Score: You - ${yourScore}, Computer - ${computerScore}`)
-
     }
 
     if (yourScore > computerScore) {
@@ -58,7 +72,6 @@ function game() {
     } else if (yourScore == computerScore) {
         console.log(`It's an unbelievable tie.`)
     }
-
 }
 
 game();
