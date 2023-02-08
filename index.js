@@ -6,7 +6,7 @@ console.log("Hello, world!");
 //     console.log(playerSelection);
 // }
 
-const playerSelection = "rock";
+let player = "rock";
 const choices = ["Rock", "Paper", "Scissors"];
 
 function getComputerChoice() {
@@ -15,5 +15,5 @@ function getComputerChoice() {
     return x;
 };
 
-let computerSelection = getComputerChoice();
-console.log(computerSelection);
+let computer = getComputerChoice();
+console.log(computer);
