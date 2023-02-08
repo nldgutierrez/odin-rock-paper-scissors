@@ -14,9 +14,7 @@ console.log(player);
 const choices = ["Rock", "Paper", "Scissors"];
 
 function getComputerChoice() {
-    let x;
-    x = choices[Math.floor(Math.random()*choices.length)];
-    return x;
+    return choices[Math.floor(Math.random()*choices.length)];
 };
 
 let computer = getComputerChoice();
