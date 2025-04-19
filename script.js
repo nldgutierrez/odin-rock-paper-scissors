@@ -7,11 +7,16 @@ function getComputerChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
+const buttons = document.querySelectorAll("button");
+
 const output = document.querySelector("#gameplay");
 const human = document.createElement("p");
 const computer = document.createElement("p");
 const result = document.createElement("p");
 const scores = document.createElement("p");
+
+const over = document.createElement("p");
+const winner = document.createElement("p");
 
 function playRound(humanChoice, computerChoice) {
 
@@ -62,9 +67,22 @@ function playRound(humanChoice, computerChoice) {
             output.appendChild(result);
             output.appendChild(scores);
     }
+
+    if (humanScore == 5 || computerScore == 5) {
+        over.textContent = `*** GAME OVER ***`;
+        output.appendChild(over);
+
+        if (humanScore > computerScore) {
+            winner.textContent = `Congratulations! You are the winner!`;
+            output.appendChild(winner);
+        } else {
+            winner.textContent = `Better luck next time!`;
+            output.appendChild(winner);
+        }
+    }
+
 }
 
-const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         let humanChoice = button.id;
