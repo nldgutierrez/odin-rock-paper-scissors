@@ -18,6 +18,9 @@ const scores = document.createElement("p");
 const over = document.createElement("p");
 const winner = document.createElement("p");
 
+const buttonsDiv = document.querySelector("#buttons");
+const playAgain = document.createElement("button");
+
 function playRound(humanChoice, computerChoice) {
 
     humanChoice = humanChoice[0].toUpperCase()+humanChoice.substr(1);
@@ -79,6 +82,10 @@ function playRound(humanChoice, computerChoice) {
             winner.textContent = `Better luck next time!`;
             output.appendChild(winner);
         }
+
+        playAgain.textContent = `Play Again`;
+        buttonsDiv.appendChild(playAgain);
+
     }
 
 }
