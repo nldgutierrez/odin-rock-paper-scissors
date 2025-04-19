@@ -79,6 +79,7 @@ function playRound(humanChoice, computerChoice) {
 
     function resetGame() {
         output.innerHTML = '';
+        output.style.cssText = '';
         humanScore = 0;
         computerScore = 0;
         round = 0;
@@ -95,9 +96,11 @@ function playRound(humanChoice, computerChoice) {
         if (humanScore > computerScore) {
             winner.textContent = `Congratulations! You are the winner!`;
             output.appendChild(winner);
+            output.style.cssText = "background-color: lightseagreen;"
         } else {
             winner.textContent = `Better luck next time!`;
             output.appendChild(winner);
+            output.style.cssText = "background-color: lightcoral;"
         }
 
         playAgain.textContent = `Play Again`;

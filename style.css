@@ -45,7 +45,7 @@ body {
 
 .playbutton {
     flex-grow: 1;
-    background: lightcoral;
+    background: lightsalmon;
     border: none;
     border-radius: 24px;
     padding: 16px;
@@ -56,7 +56,7 @@ button:hover:enabled {
 }
 
 button:active:enabled {
-    background: lightcoral;
+    background: lightsalmon;
 }
 
 p {
