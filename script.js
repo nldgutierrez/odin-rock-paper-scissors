@@ -6,12 +6,14 @@ function getComputerChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+let round = 0;
 
 const buttons = document.querySelectorAll("button");
 
 const output = document.querySelector("#gameplay");
 const human = document.createElement("p");
 const computer = document.createElement("p");
+const roundCount = document.createElement("p");
 const result = document.createElement("p");
 const scores = document.createElement("p");
 
@@ -24,6 +26,10 @@ const playAgain = document.createElement("button");
 function playRound(humanChoice, computerChoice) {
 
     humanChoice = humanChoice[0].toUpperCase()+humanChoice.substr(1);
+
+    round++;
+    roundCount.textContent = `Round: ${round}`;
+    output.appendChild(roundCount);
 
     switch (true) {
         case (humanChoice == computerChoice):
@@ -71,6 +77,17 @@ function playRound(humanChoice, computerChoice) {
             output.appendChild(scores);
     }
 
+    function resetGame() {
+        output.innerHTML = '';
+        humanScore = 0;
+        computerScore = 0;
+        round = 0;
+        playAgain.remove();
+        buttons.forEach((button) => {
+            button.disabled = false;
+        });
+    }
+
     if (humanScore == 5 || computerScore == 5) {
         over.textContent = `*** GAME OVER ***`;
         output.appendChild(over);
@@ -88,7 +105,10 @@ function playRound(humanChoice, computerChoice) {
 
         buttons.forEach((button) => {
             button.disabled = true;
-        })
+        });
+
+        playAgain.addEventListener("click", resetGame);
+
     }
 
 }
