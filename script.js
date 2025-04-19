@@ -86,6 +86,9 @@ function playRound(humanChoice, computerChoice) {
         playAgain.textContent = `Play Again`;
         buttonsDiv.appendChild(playAgain);
 
+        buttons.forEach((button) => {
+            button.disabled = true;
+        })
     }
 
 }
