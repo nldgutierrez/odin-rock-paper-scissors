@@ -63,3 +63,12 @@ function playRound(humanChoice, computerChoice) {
             output.appendChild(scores);
     }
 }
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let humanChoice = button.id;
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+    });
+});
