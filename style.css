@@ -51,11 +51,11 @@ body {
     padding: 16px;
 }
 
-.playbutton:hover:enabled {
+button:hover:enabled {
     background: coral;
 }
 
-.playbutton:active:enabled {
+button:active:enabled {
     background: lightcoral;
 }
 

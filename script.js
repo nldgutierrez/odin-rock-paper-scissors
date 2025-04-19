@@ -101,7 +101,8 @@ function playRound(humanChoice, computerChoice) {
         }
 
         playAgain.textContent = `Play Again`;
-        buttonsDiv.appendChild(playAgain);
+        playAgain.style.cssText = "border-radius: 8px; padding: 16px;";
+        output.appendChild(playAgain);
 
         buttons.forEach((button) => {
             button.disabled = true;
