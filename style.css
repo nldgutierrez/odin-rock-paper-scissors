@@ -23,17 +23,56 @@ body {
 .game {
     display: flex;
     justify-content: center;
-    gap: 24px;;
+    gap: 24px;
+}
+
+.output {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.score {
+    display: flex;
+    gap: 8px;
+}
+
+.score div, .round {
+    flex-grow: 1;
+    border-radius: 24px;
+    text-align: center;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round {
+    background-color: lightslategrey;
+}
+
+.score-human {
+    background-color: lightseagreen;
+}
+
+.score-computer {
+    background-color: lightcoral;
 }
 
 #gameplay {
+    height: 250px;
     width: 300px;
-    height: 300px;
 
     text-align: center;
     background-color: lightgray;
     border-radius: 24px;
-    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 #buttons {
@@ -41,10 +80,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    justify-content: center;
 }
 
 .playbutton {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     background: lightsalmon;
     border: none;
     border-radius: 24px;
@@ -57,8 +97,4 @@ button:hover:enabled {
 
 button:active:enabled {
     background: lightsalmon;
-}
-
-p {
-    margin: 8px;
 }

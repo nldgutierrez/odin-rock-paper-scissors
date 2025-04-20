@@ -11,11 +11,17 @@ let round = 0;
 const buttons = document.querySelectorAll("button");
 
 const output = document.querySelector("#gameplay");
+
+const roundDiv = document.querySelector(".round");
+const scoreHumanDiv = document.querySelector(".score-human");
+const scoreComputerDiv = document.querySelector(".score-computer");
+
 const human = document.createElement("p");
 const computer = document.createElement("p");
 const roundCount = document.createElement("p");
 const result = document.createElement("p");
-const scores = document.createElement("p");
+const scoreHuman = document.createElement("p");
+const scoreComputer = document.createElement("p");
 
 const over = document.createElement("p");
 const winner = document.createElement("p");
@@ -29,19 +35,21 @@ function playRound(humanChoice, computerChoice) {
 
     round++;
     roundCount.textContent = `Round: ${round}`;
-    output.appendChild(roundCount);
+    roundDiv.appendChild(roundCount);
 
     switch (true) {
         case (humanChoice == computerChoice):
             human.textContent = `You chose ${humanChoice}.`;
             computer.textContent = `Computer chose ${computerChoice}.`;
             result.textContent = `It's a tie!`;
-            scores.textContent = `You -- ${humanScore} | Computer -- ${computerScore}`;
+            scoreHuman.textContent = `You: ${humanScore}`
+            scoreComputer.textContent = `Computer: ${computerScore}`
         
             output.appendChild(human);
             output.appendChild(computer);
             output.appendChild(result);
-            output.appendChild(scores);
+            scoreHumanDiv.appendChild(scoreHuman);
+            scoreComputerDiv.appendChild(scoreComputer);
             break;
 
         case (
@@ -55,12 +63,14 @@ function playRound(humanChoice, computerChoice) {
 
             humanScore++;
 
-            scores.textContent = `You -- ${humanScore} | Computer -- ${computerScore}`;
+            scoreHuman.textContent = `You: ${humanScore}`
+            scoreComputer.textContent = `Computer: ${computerScore}`
         
             output.appendChild(human);
             output.appendChild(computer);
             output.appendChild(result);
-            output.appendChild(scores);
+            scoreHumanDiv.appendChild(scoreHuman);
+            scoreComputerDiv.appendChild(scoreComputer);
             break;
         default:
             human.textContent = `You chose ${humanChoice}.`;
@@ -69,17 +79,22 @@ function playRound(humanChoice, computerChoice) {
 
             computerScore++;
 
-            scores.textContent = `You -- ${humanScore} | Computer -- ${computerScore}`;
+            scoreHuman.textContent = `You: ${humanScore}`
+            scoreComputer.textContent = `Computer: ${computerScore}`
         
             output.appendChild(human);
             output.appendChild(computer);
             output.appendChild(result);
-            output.appendChild(scores);
+            scoreHumanDiv.appendChild(scoreHuman);
+            scoreComputerDiv.appendChild(scoreComputer);
     }
 
     function resetGame() {
         output.innerHTML = '';
         output.style.cssText = '';
+        roundDiv.innerHTML = '';
+        scoreHumanDiv.innerHTML = '';
+        scoreComputerDiv.innerHTML = '';
         humanScore = 0;
         computerScore = 0;
         round = 0;
